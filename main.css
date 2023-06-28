@@ -1,0 +1,272 @@
+body {
+    /* background-color: cornsilk; */
+    background-image: url(Texture2D/1X7rJc.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.containers {
+    /*   width: 1800px;
+    height: 1800px; */
+    display: grid;
+    grid-template-areas: "a b";
+}
+
+.container-1 {
+
+    grid-area: a;
+}
+
+.container-2 {
+
+    grid-area: b;
+}
+
+.container-top {
+    display: grid;
+    grid-template-columns: repeat(7, 100px);
+    gap: 30px;
+    margin-left: 152px;
+    margin-bottom: 3px;
+
+}
+
+.pict-1 {
+    content: url(Texture2D/top_1_0.png);
+}
+
+.pict-2 {
+    content: url(Texture2D/top_1_1.png);
+}
+
+.pict-3 {
+    content: url(Texture2D/top_1_2.png);
+}
+
+.pict-4 {
+    content: url(Texture2D/top_1_3.png);
+
+}
+
+.pict-5 {
+    content: url(Texture2D/top_1_4.png);
+}
+
+.pict-6 {
+    content: url(Texture2D/top_1_5.png);
+}
+
+[class^="pict-"] {
+    border: 1px solid brown;
+}
+
+.container {
+    display: grid;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    gap: 30px;
+    grid-template-areas:
+        "A"
+        "B"
+        "C"
+        "D"
+        "E"
+        "F"
+        "G";
+    grid-template-columns: repeat(7, 100px);
+    grid-template-rows: repeat(7, 100px);
+
+}
+
+.square-1 {
+    grid-area: A;
+}
+
+.square-2 {
+    grid-area: B;
+}
+
+.square-3 {
+    grid-area: C;
+}
+
+.square-4 {
+    grid-area: D;
+}
+
+.square-5 {
+    grid-area: E;
+}
+
+.square-6 {
+    grid-area: F;
+}
+
+.square-7 {
+    grid-area: G;
+}
+
+[class^="square-"] {
+    display: grid;
+    place-items: center;
+    border: 2px solid;
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    border-radius: 10px;
+
+}
+
+
+[id^="block-"] {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    width: 350px;
+    height: 125px;
+    font-size: 100px;
+    margin-bottom: 86px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 10px ridge rgb(255,255,255);
+    border-radius: 10px;
+}
+
+.container-puzzles {
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: repeat(6, 100px);
+    gap: 30px;
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+
+
+}
+
+[id^="puzzle-"] {
+    
+    display: grid;
+    place-items: center;
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    border-radius: 10px;
+    cursor: move;
+}
+
+#puzzle-1,
+#puzzle-6,
+#puzzle-8,
+#puzzle-13,
+#puzzle-17,
+#puzzle-20,
+#puzzle-21,
+#puzzle-24,
+#puzzle-25,
+#puzzle-28,
+#puzzle-32,
+#puzzle-34 {
+    background: linear-gradient(to bottom right, blue, white);
+}
+
+#puzzle-2,
+#puzzle-4,
+#puzzle-7,
+#puzzle-11,
+#puzzle-12,
+#puzzle-15,
+#puzzle-16,
+#puzzle-19,
+#puzzle-23,
+#puzzle-27,
+#puzzle-30,
+#puzzle-35 {
+    background: linear-gradient(to bottom right, gray, white);
+}
+
+#puzzle-3,
+#puzzle-5,
+#puzzle-9,
+#puzzle-10,
+#puzzle-14,
+#puzzle-18,
+#puzzle-22,
+#puzzle-26,
+#puzzle-29,
+#puzzle-31,
+#puzzle-33,
+#puzzle-36 {
+    background: linear-gradient(to bottom right, red, white);
+}
+
+@media screen and (max-width:1920px) {
+    .container-top {
+        gap: 20px;
+        margin-left: 130px;
+        margin-bottom: 3px;
+    }
+
+
+    .container {
+        font-size: 11px;
+        gap: 20px;
+    }
+
+    [class^="square-"] {
+        width: 100px;
+        height: 100px;
+    }
+
+
+    [id^="block-"] {
+        width: 100px;
+        height: 100px;
+        display: flex;
+    }
+
+    .timer {
+        width: 325px;
+        height: 100px;
+        font-size: 100px;
+        margin-bottom: 86px;
+    }
+
+    .container-puzzles {
+        gap: 20px;
+        font-size: 11px;
+
+    }
+
+    [id^="puzzle-"] {
+        width: 100px;
+        height: 100px;
+    }
+
+
+}
+
+/* ::selection {
+    background: transparent;
+} */
+div {
+    -moz-user-select: none;
+    /* Mozilla Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer (не поддерживается) */
+    -o-user-select: none;
+    /* Opera Presto (не поддерживается) */
+    -webkit-user-select: none;
+    /* Google Chrome, Opera Next, Safari */
+}
+
+.highlight {
+    background-color: green;
+}

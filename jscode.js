@@ -2,9 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
     let sec = 0;
     let minutes = 0;
     let hours = 0;
-    let t;
     //Переменная для определения времени старта таймера 
     let f = false;
+    //Переменная для определения времени остановки таймера
+    let f2 = false;
     let timeTxt = this.getElementById("timer_txt");
 
     function tick() {
@@ -44,7 +45,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     //Функция для повторения подсчёта каждую секунду времени
     function repeatTime() {
-        t = setTimeout(timer, 1000);
+        if (!f2) {
+            setTimeout(timer, 1000);
+        }
+        else {
+            return;
+        }
     }
 
     // Находим все пазлы по классу puzzle
@@ -145,7 +151,43 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 }
             }
+            check();
         });
     });
-    
+
+    let check_divs = document.getElementById("div-puzzles");
+    let count_divs;
+    //Функция для проверки готовности пазла 
+    function check() {
+        count_divs = check_divs.getElementsByTagName("div").length;
+        if (count_divs == 0) {
+            //Заканчиваем счёт времени
+            f2 = true;
+            for (let i = 0; i < puzzles.length; i++) {
+                puzzles[i].setAttribute("draggable", "false");
+            }
+            //Проверяем ответы
+            checkAnswers();
+        }
+    }
+    let block_1;
+    let count_ans = 0;
+    block_1 = document.getElementById("block-1");
+    //Массив правильных позиций пазлов по отношению к блокам
+    let answers = [14, 36, 9, 10, 31, 18, 3, 29, 22, 33, 5, 26, 24, 25, 13, 17, 28, 32, 6, 21, 8, 1, 34, 20, 16, 7, 19, 2, 30, 12, 11, 15, 23, 27, 35, 4];
+    for (let i = 0; i < answers.length; i++) {
+        answers[i]--;
+    }
+
+    function checkAnswers() {
+        for (let i = 0; i < blocks.length; i++) {
+            if (blocks[i].offsetTop == (puzzles[answers[i]].offsetTop) && blocks[i].offsetLeft == (puzzles[answers[i]].offsetLeft)) {
+                count_ans++;
+            }
+        }
+        let percent = count_ans / 36 * 100;
+        percent = Math.round(percent);
+        alert("Привильных ответов: " + count_ans + ` из 36 (${percent}%)\n` + "Время выполнения: " + timeTxt.textContent);
+    }
+
 })

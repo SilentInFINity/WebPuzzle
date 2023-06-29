@@ -144,8 +144,157 @@ body {
     font-size: 12px;
     text-align: center;
     font-weight: bold;
+    grid-template-areas:
+        "a b c d e f"
+        "g h i j k l"
+        "m n o p q r"
+        "s t u v w x"
+        "y z ab ac ad ae"
+        "af ag ah ai aj ak";
+}
 
+#puzzle-1 {
+    grid-area: a;
+}
 
+#puzzle-2 {
+    grid-area: b;
+}
+
+#puzzle-3 {
+    grid-area: c;
+}
+
+#puzzle-4 {
+    grid-area: d;
+}
+
+#puzzle-5 {
+    grid-area: e;
+}
+
+#puzzle-6 {
+    grid-area: f;
+}
+
+#puzzle-7 {
+    grid-area: g;
+}
+
+#puzzle-8 {
+    grid-area: h;
+}
+
+#puzzle-9 {
+    grid-area: i;
+}
+
+#puzzle-10 {
+    grid-area: j;
+}
+
+#puzzle-11 {
+    grid-area: k;
+}
+
+#puzzle-12 {
+    grid-area: l;
+}
+
+#puzzle-13 {
+    grid-area: m;
+}
+
+#puzzle-14 {
+    grid-area: n;
+}
+
+#puzzle-15 {
+    grid-area: o;
+}
+
+#puzzle-16 {
+    grid-area: p;
+}
+
+#puzzle-17 {
+    grid-area: q;
+}
+
+#puzzle-18 {
+    grid-area: r;
+}
+
+#puzzle-19 {
+    grid-area: s;
+}
+
+#puzzle-20 {
+    grid-area: t;
+}
+
+#puzzle-21 {
+    grid-area: u;
+}
+
+#puzzle-22 {
+    grid-area: v;
+}
+
+#puzzle-23 {
+    grid-area: w;
+}
+
+#puzzle-24 {
+    grid-area: x;
+}
+
+#puzzle-25 {
+    grid-area: y;
+}
+
+#puzzle-26 {
+    grid-area: z;
+}
+
+#puzzle-27 {
+    grid-area: ab;
+}
+
+#puzzle-28 {
+    grid-area: ac;
+}
+
+#puzzle-29 {
+    grid-area: ad;
+}
+
+#puzzle-30 {
+    grid-area: ae;
+}
+
+#puzzle-31 {
+    grid-area: af;
+}
+
+#puzzle-32 {
+    grid-area: ag;
+}
+
+#puzzle-33 {
+    grid-area: ah;
+}
+
+#puzzle-34 {
+    grid-area: ai;
+}
+
+#puzzle-35 {
+    grid-area: aj;
+}
+
+#puzzle-36 {
+    grid-area: ak;
 }
 
 [id^="puzzle-"] {
@@ -171,7 +320,7 @@ body {
 #puzzle-28,
 #puzzle-32,
 #puzzle-34 {
-    background: linear-gradient(to bottom right, blue, white);
+    background: linear-gradient(to bottom right, rgb(56, 56, 255), white);
 }
 
 #puzzle-2,
@@ -259,4 +408,44 @@ div {
 
 .highlight {
     background-color: green;
+}
+
+.modal_window {
+    position: absolute;
+    border: 2px solid;
+    border-radius: 10px 10px 0 0;
+    width: 350px;
+    height: 120px;
+    display: none;
+    background-color: rgba(255, 255, 255, 1);
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.modal_body {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#submit {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+}
+
+.modal_grid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+}
+
+.button_grid {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
 }

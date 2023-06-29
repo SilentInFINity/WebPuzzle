@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+    let modal = document.getElementById("modal_window");
+    let modal_body = document.getElementById("modal_body");
     let sec = 0;
     let minutes = 0;
     let hours = 0;
@@ -34,23 +36,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     //Функция для подсчёта времени и вставки времени в html
     function timer() {
-        tick();
-        /* вставляем время в html */
-        timeTxt.textContent =
-            (hours > 9 ? hours : "0" + hours) + ":" +
-            (minutes > 9 ? minutes : "0" + minutes) + ":" +
-            (sec > 9 ? sec : "0" + sec);
-
-        repeatTime();
+        if (f2) {
+            return;
+        }
+        else {
+            tick();
+            /* вставляем время в html */
+            timeTxt.textContent =
+                (hours > 9 ? hours : "0" + hours) + ":" +
+                (minutes > 9 ? minutes : "0" + minutes) + ":" +
+                (sec > 9 ? sec : "0" + sec);
+            repeatTime();
+        }
     }
     //Функция для повторения подсчёта каждую секунду времени
     function repeatTime() {
-        if (!f2) {
-            setTimeout(timer, 1000);
-        }
-        else {
-            return;
-        }
+        setTimeout(timer, 1000);
     }
 
     // Находим все пазлы по классу puzzle
@@ -170,9 +171,8 @@ document.addEventListener("DOMContentLoaded", function () {
             checkAnswers();
         }
     }
-    let block_1;
+
     let count_ans = 0;
-    block_1 = document.getElementById("block-1");
     //Массив правильных позиций пазлов по отношению к блокам
     let answers = [14, 36, 9, 10, 31, 18, 3, 29, 22, 33, 5, 26, 24, 25, 13, 17, 28, 32, 6, 21, 8, 1, 34, 20, 16, 7, 19, 2, 30, 12, 11, 15, 23, 27, 35, 4];
     for (let i = 0; i < answers.length; i++) {
@@ -187,7 +187,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         let percent = count_ans / 36 * 100;
         percent = Math.round(percent);
-        alert("Привильных ответов: " + count_ans + ` из 36 (${percent}%)\n` + "Время выполнения: " + timeTxt.textContent);
+        let mark = document.getElementById("mark");
+        modal.style.display = "flex";
+        modal_body.textContent = "Правильных ответов: " + count_ans + ` из 36 (${percent}%)\n` + "Время выполнения: " + timeTxt.textContent;
+        mark.value = percent;
     }
-
+    let button_retry = document.getElementById("retry");
+    button_retry.addEventListener("click", function () {
+        location.reload();
+    })
+    let button_submit = document.getElementById("submit");
+    button_submit.addEventListener("click", function () {
+        modal.style.display = "none";
+    })
 })

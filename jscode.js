@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let f = false;
     //Переменная для определения времени остановки таймера
     let f2 = false;
-    let timeTxt = this.getElementById("timer_txt");
+    let timeTxt = document.getElementById("timer_txt");
 
     function tick() {
         sec++;
